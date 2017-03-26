@@ -1,0 +1,45 @@
+package edu.twister.malik.services.user;
+
+import edu.twister.malik.services.ServiceException;
+
+@SuppressWarnings("serial")
+public class UserException extends ServiceException {
+
+    public static final int _NAME_ALREADY_REGISTERED = 0;
+    public static final int _USERNAME_ALREADY_USED = 1;
+    public static final int _INVALID_EMAIL = 2;
+    public static final int _INVALID_NAME = 3;
+
+    private int code;
+
+    public UserException
+        (int code) {
+            super(getMessage(code), ServiceException._USER_CLASS, code);
+            this.code = code;
+        }
+
+    private static String 
+        getMessage
+        (int code) {
+            switch(code) {
+                case _NAME_ALREADY_REGISTERED:
+                    return "First and Last Names already registred";
+                case _USERNAME_ALREADY_USED:
+                    return "This Login is already use";
+                case _INVALID_EMAIL:
+                    return "Not a valid email address";
+                case _INVALID_NAME:
+                    return "First name or last name must " +
+                        "contain only letters and must " +
+                        "be between 2 and 20 characters";
+                default:
+                    return "Unknown Erorr";
+            }
+        }
+
+    public int 
+        getCode() {
+        return code;
+    }
+
+}
