@@ -25,7 +25,7 @@ public class UserDescription {
         }
 
     public boolean 
-        verify() throws UserException, ServiceException {
+        verify() throws ServiceException {
             boolean trust = true;
             trust &= trusted_names(firstname, lastname);
             if ( ! trust ) 
@@ -43,8 +43,7 @@ public class UserDescription {
                 return trust;
             }
             catch (SQLException e) {
-                throw new 
-                    ServiceException(e.getMessage(), ServiceException._SQL_CLASS);
+                throw new ServiceException(e);
             }
 
         }

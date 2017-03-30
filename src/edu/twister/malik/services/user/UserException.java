@@ -5,10 +5,10 @@ import edu.twister.malik.services.ServiceException;
 @SuppressWarnings("serial")
 public class UserException extends ServiceException {
 
-    public static final int _NAME_ALREADY_REGISTERED = 0;
-    public static final int _USERNAME_ALREADY_USED = 1;
-    public static final int _INVALID_EMAIL = 2;
-    public static final int _INVALID_NAME = 3;
+    public static final int _NAME_ALREADY_REGISTERED = 1;
+    public static final int _USERNAME_ALREADY_USED = 2;
+    public static final int _INVALID_EMAIL = 3;
+    public static final int _INVALID_NAME = 4;
 
     private int code;
 
@@ -21,7 +21,7 @@ public class UserException extends ServiceException {
     private static String 
         getMessage
         (int code) {
-            switch(code) {
+            switch (code) {
                 case _NAME_ALREADY_REGISTERED:
                     return "First and Last Names already registred";
                 case _USERNAME_ALREADY_USED:

@@ -1,8 +1,11 @@
 package edu.twister.malik.services;
 
+import java.sql.SQLException;
+
 @SuppressWarnings("serial")
 public class ServiceException extends Exception {
 
+    public static final int _SERVICE_CLASS = 0;
     public static final int _USER_CLASS = 1;
     public static final int _JSON_CLASS = -1;
     public static final int _SQL_CLASS = -2;
@@ -11,10 +14,30 @@ public class ServiceException extends Exception {
     private int code;
 
     public ServiceException
+        (int _class) {
+            super("Service Exception");
+            this._class = _class;
+            this.code = _SERVICE_CLASS;
+        }
+
+    public ServiceException
+        (SQLException e) {
+            super(classMsg(
+                        _SQL_CLASS, 
+                        e.getMessage() + 
+                        " - state " + e.getSQLState() + 
+                        " - sql code " + e.getErrorCode()
+                        )
+                 );
+            this._class = _SQL_CLASS;
+            this.code = _SERVICE_CLASS;
+        }
+
+    public ServiceException
         (String message, int _class) {
             super(classMsg(_class, message));
             this._class = _class;
-            this.code = 0;
+            this.code = _SERVICE_CLASS;
         }
 
     public ServiceException
