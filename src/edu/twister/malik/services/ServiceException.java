@@ -6,9 +6,13 @@ import java.sql.SQLException;
 public class ServiceException extends Exception {
 
     public static final int _SERVICE_CLASS = 0;
+    public static final int _SERVEMAP_CLASS = 100;
+
     public static final int _USER_CLASS = 1;
+
     public static final int _JSON_CLASS = -1;
     public static final int _SQL_CLASS = -2;
+    public static final int _CORE_CLASS = -3;
 
     private int _class;
     private int code;
@@ -68,6 +72,10 @@ public class ServiceException extends Exception {
                 return "JSON Exception" + message;
             case _SQL_CLASS:
                 return "SQL Exception" + message;
+            case _CORE_CLASS:
+                return "[Core Exception]" + message;
+            case _SERVEMAP_CLASS:
+                return "[Parameters Exception]" + message;
             default:
                 return "Unknown Exception" + message;
         }

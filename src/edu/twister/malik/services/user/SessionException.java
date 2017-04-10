@@ -5,7 +5,9 @@ import edu.twister.malik.services.ServiceException;
 @SuppressWarnings("serial")
 public class SessionException extends ServiceException {
 
-    public static final int _FORBIDDEN_USERNAME = 0;
+    public static final int _FORBIDDEN_USERNAME = 1;
+
+    public static final int _NO_NEW_SESSION_ENTRY = -1;
 
     private int code;
 
@@ -28,6 +30,8 @@ public class SessionException extends ServiceException {
                 case _FORBIDDEN_USERNAME:
                     msg = "Not registred username. Access Forbidden";
                     break;
+                case _NO_NEW_SESSION_ENTRY:
+                    msg = "Session entry not inserted";
                 default:
                     msg = "";
                     break;
