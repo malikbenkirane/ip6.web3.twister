@@ -1,0 +1,23 @@
+.dialog-title {
+    font-size: 18px;
+    text-align:center;
+    padding: 15px;
+}
+
+.dialog-form {
+    margin: auto;
+    font-family: Courier, sans-serif;
+    margin-left: auto;
+}
+
+.dialog-input {
+}
+
+.dialog-label {
+    font-size: 12px;
+    margin-left: auto;
+}
+
+.dialog-button {
+    width: 100%;
+}
