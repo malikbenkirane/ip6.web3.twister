@@ -9,6 +9,7 @@ public class UserException extends ServiceException {
     public static final int _USERNAME_ALREADY_USED = 2;
     public static final int _INVALID_EMAIL = 3;
     public static final int _INVALID_NAME = 4;
+    public static final int _BAD_LOGIN = 5;
 
     private int code;
 
@@ -32,6 +33,8 @@ public class UserException extends ServiceException {
                     return "First name or last name must " +
                         "contain only letters and must " +
                         "be between 2 and 20 characters";
+                case _BAD_LOGIN:
+                    return "Wrong Username or Wrong Password";
                 default:
                     return "Unknown Erorr";
             }

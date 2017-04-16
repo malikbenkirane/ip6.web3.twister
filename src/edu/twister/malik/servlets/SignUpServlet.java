@@ -30,8 +30,7 @@ public class SignUpServlet extends HttpServlet {
             served = SignUpService.serve(
                     new Hashtable<String, String[]>
                     (request.getParameterMap()));
-        }
-        catch (ServiceException e) {
+        } catch (ServiceException e) {
             served =
                 ServiceFactory.error(e);
         }
