@@ -28,6 +28,17 @@ public class SessionManager {
         "WHERE userkey = ?;";
 
     private static final String
+        sql_retrieve_session =
+        "SELECT iid, useriid, username FROM sessions " +
+        /*TODO implement parameter _MAX_SESSION_DURATION
+         * services.user.SessionDescription._MAX_SESSION_DURATION */
+        "WHERE userkey = ? AND TIMEDIFF(NOW(), loginstmp) > 0;";
+    private static final String
+        sql_retrieve_session_whatever =
+        "SELECT * FROM sessions " +
+        "WHERE userkey = ?;";
+
+    private static final String
         sql_get_useriid =
         "SELECT iid FROM users " +
         "WHERE username = ?;";
@@ -79,8 +90,7 @@ public class SessionManager {
      */
     public static String
         newSession 
-        (String username, Connection cnx) 
-            throws ServiceException {
+        (String username, Connection cnx) throws ServiceException {
             /* newSession(username, cnx) -- static method
              * hash of username, date and time makes a userkey inserted in
              * sessions sql table and return the userkey
@@ -112,13 +122,45 @@ public class SessionManager {
      */
     public static void
         close_session_instance
-        (String userkey, Connection cnx) 
-        throws ServiceException, SQLException {
+        (String userkey, Connection cnx) throws ServiceException, SQLException {
             PreparedStatement closeStmt =
                 cnx.prepareStatement(sql_end_of_session);
             closeStmt.setString(1, userkey);
             if ( closeStmt.executeUpdate() < 1 )
                 throw new SessionException(SessionException._NO_SESSION_TO_CLOSE);
+        }
+
+    public static SessionDescription
+        retrieve_session
+        (String userkey, Connection cnx) 
+            throws ServiceException {
+            try {
+                PreparedStatement retrieveStmt =
+                    cnx.prepareStatement(sql_retrieve_session);
+                retrieveStmt.setString(1, userkey);
+                ResultSet users = retrieveStmt.executeQuery();
+                if ( users.next() ) //session has not expired
+                    return new SessionDescription(
+                            users.getInt(1),
+                            users.getInt(2),
+                            users.getString(3));
+                else {
+                    retrieveStmt =
+                        cnx.prepareStatement(sql_retrieve_session_whatever);
+                    retrieveStmt.setString(1, userkey);
+                    users = retrieveStmt.executeQuery();
+                    if ( users.next() ) { //session has expired
+                        close_session_instance(userkey, cnx);
+                        throw new
+                            SessionException(SessionException._SESSION_EXPIRED);
+                    }
+                    else //there were no session
+                        throw new
+                            SessionException(SessionException._INVALID_SESSION);
+                }
+            } catch (SQLException sqle){
+                throw new ServiceException(sqle);
+            }
         }
 
 }

@@ -41,4 +41,20 @@ public class ServletMap {
             throw new ServletException("not safe");
         }
 
+    public int
+        getIntNotSafe(String parameter) throws ServletException {
+            if ( inputs == null )
+                throw new ServletException("no inputs");
+            if ( inputs.containsKey(parameter) ) {
+                try {
+                    return Integer.parseInt(inputs.get(parameter)[0]);
+                } 
+                catch (NumberFormatException nfe) {
+                    throw new ServletException(
+                            parameter + " is not an integer");
+                }
+            }
+            throw new ServletException("not safe");
+        }
+
 }

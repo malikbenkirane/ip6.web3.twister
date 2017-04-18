@@ -7,6 +7,8 @@ public class SessionException extends ServiceException {
 
     public static final int _FORBIDDEN_USERNAME = 1;
     public static final int _NO_SESSION_TO_CLOSE = 2;
+    public static final int _SESSION_EXPIRED = 3;
+    public static final int _INVALID_SESSION = 4;
 
     public static final int _NO_NEW_SESSION_ENTRY = -1;
 
@@ -23,8 +25,7 @@ public class SessionException extends ServiceException {
     }
 
     private static String
-        getMessage
-        (int code) {
+        getMessage (int code) {
             String suffix = " (Session Exception)";
             String msg;
             switch (code) {
@@ -36,6 +37,9 @@ public class SessionException extends ServiceException {
                     break;
                 case _NO_SESSION_TO_CLOSE:
                     msg = "Not logged in (no session to close)";
+                    break;
+                case _SESSION_EXPIRED:
+                    msg = "The session has expired";
                     break;
                 default:
                     msg = "";

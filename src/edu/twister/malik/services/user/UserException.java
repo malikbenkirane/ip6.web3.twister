@@ -36,7 +36,7 @@ public class UserException extends ServiceException {
                 case _BAD_LOGIN:
                     return "Wrong Username or Wrong Password";
                 default:
-                    return "Unknown Erorr";
+                    return "Unknown Error";
             }
         }
 
