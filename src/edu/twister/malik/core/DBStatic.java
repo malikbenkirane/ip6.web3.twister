@@ -8,4 +8,8 @@ public interface DBStatic {
     public static String mysqlPassword = "benk";
     public static boolean mysqlPooling = false;
 
+    public static String mongoHost = "li328.lip6.fr";
+    public static String mongoDatabase = "gr3_benk";
+    public static int mongoPort = 27130;
+
 }
