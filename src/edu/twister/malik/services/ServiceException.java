@@ -11,6 +11,7 @@ public class ServiceException extends Exception {
 
     public static final int _USER_CLASS = 1;
     public static final int _CONTENT_CLASS = 2;
+    public static final int _RELATION_CLASS = 3;
 
     public static final int _JSON_CLASS = -1;
     public static final int _SQL_CLASS = -2;
@@ -85,6 +86,8 @@ public class ServiceException extends Exception {
                 return "User Service Exception" + message;
             case _CONTENT_CLASS:
                 return "Content Service Exception" + message;
+            case _RELATION_CLASS:
+                return "Relation Service Exception" + message;
             case _JSON_CLASS:
                 return "JSON Exception" + message;
             case _SQL_CLASS:
