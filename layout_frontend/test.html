@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Twister</title>
+<link rel="stylesheet" href="styles.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+<script type="text/javascript" src="jquery.slimscroll.min.js"></script>
+<style>
+html,body {
+  margin:0;
+
+}
+
+footer {
+    background-image: url(footer.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:bottom;
+    width:100%;
+    min-width: 600px;
+    height:256px;
+    position:fixed;
+    bottom:20px;
+    }
+
+
+footer input[type=text] {
+    position:fixed;
+    right:10%;
+    bottom:5%;
+    width: 3%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('search_icon.svg');
+    background-size: 28px 28px;
+    background-position: 4px center;
+    background-repeat: no-repeat;
+    padding: 14px 10px 10px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+footer input[type=text]:focus {
+    width: 20%;
+    min-width: 200px;
+}
+
+
+.mainpage {
+  width: 97%;
+  background-color: white;
+  margin:0 auto;
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  position: fixed;
+  color: #fff;
+  min-width: 500px;
+}
+.mainpage .dialogbox {
+  margin:0 10% 0 10%;
+  padding:10px;
+  border:solid black 1px;
+  }
+
+.content{
+  padding:0px;
+  margin: 5% 10% 0 10%;
+  color:#969696;
+  background-color: #F4F4F4;
+  border-radius: 2px;
+  }
+aside {
+  position:fixed;
+  background-color:rgba(0, 230, 118, 0.71);
+  top:0;
+  right:-27%;
+  width:30%;
+  height:100%;
+}
+
+
+#scroll{
+
+}
+
+
+.pair{
+  background-color: #C7E2FF;
+}
+.impair{
+  background-color: #2F465B;
+}
+</style>
+</head>
+
+<body>
+
+<div class="mainpage">
+
+<div id="scroll">
+<div class="content">
+
+  <div class="dialogbox impair">
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nam eu luctus justo. Integer nisl sapien, elementum quis
+    ex quis, pharetra scelerisque diam. Proin a libero lorem.
+    Mauris rutrum eu turpis vitae fermentum. In varius posuere
+    lobortis.
+
+  </div>
+
+  <div class="dialogbox pair">
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nam eu luctus justo. Integer nisl sapien, elementum quis
+    ex quis, pharetra scelerisque diam. Proin a libero lorem.
+    Mauris rutrum eu turpis vitae fermentum. In varius posuere
+    lobortis.
+
+  </div>
+
+  <div class="dialogbox impair">
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nam eu luctus justo. Integer nisl sapien, elementum quis
+    ex quis, pharetra scelerisque diam. Proin a libero lorem.
+    Mauris rutrum eu turpis vitae fermentum. In varius posuere
+    lobortis.
+
+  </div>
+
+  <div class="dialogbox pair">
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nam eu luctus justo. Integer nisl sapien, elementum quis
+    ex quis, pharetra scelerisque diam. Proin a libero lorem.
+    Mauris rutrum eu turpis vitae fermentum. In varius posuere
+    lobortis.
+
+  </div>
+  <div class="dialogbox impair">
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nam eu luctus justo. Integer nisl sapien, elementum quis
+    ex quis, pharetra scelerisque diam. Proin a libero lorem.
+    Mauris rutrum eu turpis vitae fermentum. In varius posuere
+    lobortis.
+
+  </div>
+
+  <div class="dialogbox pair">
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nam eu luctus justo. Integer nisl sapien, elementum quis
+    ex quis, pharetra scelerisque diam. Proin a libero lorem.
+    Mauris rutrum eu turpis vitae fermentum. In varius posuere
+    lobortis.
+
+  </div>
+  <div class="dialogbox impair">
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nam eu luctus justo. Integer nisl sapien, elementum quis
+    ex quis, pharetra scelerisque diam. Proin a libero lorem.
+    Mauris rutrum eu turpis vitae fermentum. In varius posuere
+    lobortis.
+
+  </div>
+
+  <div class="dialogbox pair">
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nam eu luctus justo. Integer nisl sapien, elementum quis
+    ex quis, pharetra scelerisque diam. Proin a libero lorem.
+    Mauris rutrum eu turpis vitae fermentum. In varius posuere
+    lobortis.
+
+  </div>
+  <div class="dialogbox impair">
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nam eu luctus justo. Integer nisl sapien, elementum quis
+    ex quis, pharetra scelerisque diam. Proin a libero lorem.
+    Mauris rutrum eu turpis vitae fermentum. In varius posuere
+    lobortis.
+
+  </div>
+
+  <div class="dialogbox pair">
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nam eu luctus justo. Integer nisl sapien, elementum quis
+    ex quis, pharetra scelerisque diam. Proin a libero lorem.
+    Mauris rutrum eu turpis vitae fermentum. In varius posuere
+    lobortis.
+
+  </div>
+
+  </div>
+</div>
+</div>
+
+<aside>
+  Gear
+  <input type="button" value="Log out">
+</aside>
+
+<footer>
+  <form>
+  <input type="text" name="search" placeholder="...">
+</form>
+</footer>
+
+
+
+<script>
+
+$(".mainpage").hover(
+  function(){
+    $("aside").css("right","-27%");
+    $(".mainpage").css("width","97%");
+
+  }
+)
+
+$("aside").hover(
+  function(){
+    $(this).css("right","0");
+    $(".mainpage").css("width","70%");
+  }
+)
+
+
+$(function(){
+    $('#scroll').slimScroll({
+        height: '93%'
+    });
+});
+
+</script>
+
+
+</body>
+</html>
